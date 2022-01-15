@@ -3,6 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+
+// Set Template Engine
+// Template Engines : EJS, PUG Handlebars (Express Handlebars)
+app.set('view engine','pug');
+app.set('views','views');
+
 const rootDir = require('./util/path');
 
 const adminData = require('./routes/admin');
@@ -15,7 +21,11 @@ app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) =>{
-    res.sendFile(path.join(rootDir, 'views','404.html'));
+    // res.sendFile(path.join(rootDir, 'views','404.html'));
+    res.render('404', {
+        docTitle: 'No Page Found',
+        path: ''
+    });
 });
 
 
