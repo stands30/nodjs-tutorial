@@ -1,4 +1,4 @@
-const requestHandler = (req, res) =>{
+const requestHandler = (req, res) => {
     const url = req.url;
     const method = req.method;
     if (url === '/') {
@@ -8,7 +8,7 @@ const requestHandler = (req, res) =>{
         res.write('</html>');
         return res.end();
     }
-    
+
     if (url === '/message' && method === 'POST') {
         const fs = require('fs');
         const body = [];
@@ -22,15 +22,15 @@ const requestHandler = (req, res) =>{
             const message = parsedBody.split('=')[1];
             console.log('parsedBody: ');
             console.log(message);
-            fs.writeFileSync('message.txt', message, () =>{
+            fs.writeFileSync('message.txt', message, () => {
                 res.writeHead(302, {
                     'Location': '/'
                 });
                 return res.end();
             });
         })
-    
-       
+
+
     }
     // console.log('req ', req.url, req.method, req.headers);
     // process.exit();
@@ -42,4 +42,10 @@ const requestHandler = (req, res) =>{
     res.end();
 }
 
-module.exports = requestHandler;
+// exports = {
+//     handler: requestHandler,
+//     someText: 'Some hardcoded text' 
+// };
+
+exports.handler = requestHandler;
+exports.someText = 'Some hardcoded text';
