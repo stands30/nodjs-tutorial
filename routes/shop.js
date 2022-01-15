@@ -16,7 +16,10 @@ router.get('/',(req, res, next) =>{
     res.render('shop', {
         docTitle: 'Shop',
         prods: products,
-        path: '/'
+        path: '/',
+        hansProducts:products.length > 0,
+        activeShop: true,
+        productCss: true
     });
 });
 
