@@ -4,7 +4,7 @@ exports.getAddProduct = (req, res, next) => {
     // res.sendFile(path.join(rootDir, 'views','add-product.html'));
     // Render view
     res.render('admin/add-product', {
-        docTitle: 'Add product',
+        pageTitle: 'Add product',
         path: '/admin/add-product',
     });
 };
@@ -22,7 +22,7 @@ exports.postAddProduct = (req, res, next) =>{
 exports.getProducts = (req, res, next) => {
     Product.fetchAll((products) =>{
         res.render('admin/products', {
-            docTitle: 'Shop',
+            pageTitle: 'Shop',
             prods: products,
             path: '/',
         });

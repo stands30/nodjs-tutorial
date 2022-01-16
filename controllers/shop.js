@@ -4,7 +4,7 @@ const Product = require('../models/product');
 exports.getProducts = (req, res, next) =>{
     Product.fetchAll((products) =>{
         res.render('shop/product-list', {
-            docTitle: 'Products',
+            pageTitle: 'Products',
             prods: products,
             path: '/product-list',
         });
@@ -14,7 +14,7 @@ exports.getProducts = (req, res, next) =>{
 exports.getIndex = (req, res, next) =>{
     Product.fetchAll((products) =>{
         res.render('shop/index', {
-            docTitle: 'Shop',
+            pageTitle: 'Shop',
             prods: products,
             path: '/',
         });
@@ -23,21 +23,21 @@ exports.getIndex = (req, res, next) =>{
 
 exports.getCart = (req, res, next) =>{
     res.render('shop/cart',  {
-        docTitle: 'Your Cart',
+        pageTitle: 'Your Cart',
         path: '/cart',
     });
 };
 
 exports.shopCheckout = (req, res, next) =>{
     res.render('shop/checkout',  {
-        docTitle: 'Checkout',
+        pageTitle: 'Checkout',
         path: '/checkout',
     });
 };
 
 exports.getOrders = (req, res, next) =>{
     res.render('shop/orders',  {
-        docTitle: 'Your Orders',
+        pageTitle: 'Your Orders',
         path: '/orders',
     });
 };
