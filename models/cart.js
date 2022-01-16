@@ -3,14 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const p = path.join( path.dirname(process.mainModule.filename), 'data', 'cart.json' );
-const getCartsFromFile = (cb) =>{
-        fs.readFile(p, (err, fileContent) =>{
-            if(err){
-            return cb([]);
-            }
-            cb(JSON.parse(fileContent));
-        });
-};
+
 module.exports = class Cart{
 
     static addProduct(id, productPrice){
